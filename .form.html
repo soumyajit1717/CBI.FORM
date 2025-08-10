@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Bank of India - Group Account Deposit Slip</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: white;
+        color: #000;
+        margin: 0;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+    .page {
+        width: 4in;
+        height: 6in;
+        margin: auto;
+        border: 1px solid #ccc;
+        padding: 8px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid red;
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+    }
+    header img {
+        height: 40px;
+        margin-right: 6px;
+    }
+    header h1 {
+        color: royalblue;
+        font-size: 16px;
+        margin: 0;
+        line-height: 1.2;
+    }
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+    input {
+        width: 100%;
+        padding: 3px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
+    .row {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+    }
+    .watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.05;
+        z-index: -1;
+        width: 80%;
+    }
+    .customer-signature {
+        border: 1px solid #000;
+        background-color: #f9f9f9;
+        height: 18px;
+        width: 100%;
+        height: 40px; /* Increased height */
+    }
+    .full-width-box {
+        width: 100%;
+        height: calc(100% - 40px - 40px);
+        border: 1px solid #000;
+        background-color: #f9f9f9;
+    }
+    @media print {
+        body {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .print-btn {
+            display: none;
+        }
+        .page {
+            border: none;
+            padding: 0;
+            width: 4in;
+            height: 6in;
+        }
+    }
+    .print-btn {
+        display: block;
+        margin: 15px auto;
+        padding: 8px 16px;
+        font-weight: bold;
+        background: royalblue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    .print-slip {
+        border: 2px solid #000;
+        padding: 8px;
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+    <img src="central-bank-logo-1200x900.png" class="watermark" alt="Watermark">
+    <header>
+        <img src="central-bank-logo-1200x900.png" alt="Central Bank Logo">
+        <h1>Central Bank of India<br>Group Account Deposit Slip</h1>
+    </header>
+
+    <div class="print-slip">
+        <div>
+            <label>Group Name</label>
+            <input type="text">
+        </div>
+        <div class="row">
+            <div style="flex: 2;">
+                <label>Group Address</label>
+                <input type="text">
+            </div>
+            <div style="flex: 1;">
+                <label>Date</label>
+                <input type="date">
+            </div>
+        </div>
+        <div>
+            <label>Savings Account</label>
+            <div class="row">
+                <label><b>A/C:</b></label>
+                <input type="text" placeholder="Account Number">
+                <label><b>RS:</b></label>
+                <input type="number" placeholder="Amount in Rupees">
+            </div>
+        </div>
+        <div>
+            <label>Current Account</label>
+            <div class="row">
+                <label><b>A/C:</b></label>
+                <input type="text" placeholder="Account Number">
+                <label><b>RS:</b></label>
+                <input type="number" placeholder="Amount in Rupees">
+            </div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end;">
+            <label>Customer Signature</label>
+            <div class="customer-signature"></div>
+            <label><b>Bank Official's Sign with Stamp</b></label>
+            <div class="full-width-box"></div>
+        </div>
+    </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">Print Slip</button>
+</body>
+</html>
